@@ -1,0 +1,40 @@
+.lt_aside{
+    width: 90px;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.lt_aside li{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+.lt_aside li.now{
+    background-color: #fff;
+    border-right: none;
+}
+.lt_aside li a{
+    color: #666;
+}
+.lt_main{
+ height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.lt_main ul li{
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+.lt_main ul li img{
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
+}
+.info{
+    margin-left: 10px;
+    margin-top: 10px;
+}
