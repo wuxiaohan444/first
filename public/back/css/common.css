@@ -34,9 +34,10 @@ a:link, a:visited, a:hover, a:active {
     width: 180px;
     height: 100%;
     background-color: #222d32;
-    position: absolute;
+    position: fixed;
     left: 0;
     transition: all 1s;
+    z-index: 999;
 }
 
 
@@ -102,7 +103,16 @@ a:link, a:visited, a:hover, a:active {
     height: 50px;
     background-color: #3c8dbc;
     padding: 15px 20px;
+    padding-left: 200px;
     margin-bottom: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 1s;
+}
+.header.now{
+    padding-left: 20px;
 }
 .header a{
     color: #ffffff;
@@ -117,6 +127,10 @@ a:link, a:visited, a:hover, a:active {
     vertical-align: middle;
     text-align: center;
 }
+.breadcrumb{
+    margin-top: 70px;
+}
+
 .fileupload_box {
     width: 100px;
     height: 34px;

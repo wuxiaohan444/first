@@ -30,6 +30,7 @@ $(function () {
     $(".icon_menu").on("click", function () {
         $(".lt_aside").toggleClass("now");
         $(".main").toggleClass("now");
+        $(".header").toggleClass("now");
     })
 
     $(".icon_logout").on("click", function () {
