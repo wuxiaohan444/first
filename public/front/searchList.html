@@ -9,15 +9,14 @@
     <link rel="stylesheet" href="lib/mui/css/mui.min.css">
     <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/searchList.css">
 </head>
 <body>
 <div class="lt_container">
     <div class="lt_header">
         <a href="javascript:history.go(-1);" class="icon_left"><span class="fa fa-chevron-left"></span></a>
-        <h4>搜索中心</h4>
+        <h4>商品列表</h4>
     </div>
-
     <div class="lt_content">
         <div class="mui-scroll-wrapper">
             <div class="mui-scroll">
@@ -25,18 +24,21 @@
                     <input class="search_text" type="text" placeholder="请输入关键字">
                     <button class="mui-btn-blue search_btn">搜索</button>
                 </div>
-                <div class="lt_history">
-                    <!--模板渲染-->
+                <div class="lt_sort mui-clearfix">
+                    <a href="javascript:;">上架时间<span class="fa fa-angle-down"></span></a>
+                    <a  data-type="price" href="javascript:;">价格<span class="fa fa-angle-down"></span></a>
+                    <a data-type="num" href="javascript:;">库存<span class="fa fa-angle-down"></span></a>
+                    <a href="javascript:;">折扣<span class="fa fa-angle-down"></span></a>
+                </div>
+                <div class="lt_product">
                 </div>
             </div>
         </div>
     </div>
-
-
     <div class="lt_footer">
         <ul class="mui-clearfix">
-            <li><a href="index.html"><span class="fa fa-home now"></span>
-                <p class="now">首页</p></a></li>
+            <li><a href="index.html"><span class="fa fa-home"></span>
+                <p>首页</p></a></li>
             <li><a href="categroy.html"><span class="fa fa-bars"></span>
                 <p>分类</p></a></li>
             <li><a href="cart.html"><span class="fa fa-shopping-cart"></span>
@@ -46,30 +48,35 @@
         </ul>
     </div>
 </div>
-
 <script type="text/html" id="tpl">
-    {{if arr.length===0}}
-    <p>暂无数据</p>
+
+    {{if(data.length===0)}}
+    <p>暂无此商品</p>
     {{/if}}
-    {{if arr.length>0}}
-    <div class="title mui-clearfix">
-        <span class="mui-pull-left">搜索历史</span>
-        <span class="mui-pull-right fa icon_empty fa-trash">清空记录</span>
-    </div>
-    <ul class="content">
-        {{each arr v i}}
-        <li class="mui-clearfix">
-            <a href="searchList.html?key={{v}}" class="mui-pull-left">{{v}}</a>
-            <span data-index="{{i}}" class="mui-pull-right fa fa-close"></span>
+    {{if(data.length>0)}}
+    <ul class="mui-clearfix">
+        {{each data v i}}
+        <li>
+            <a href="#">
+                <img src="{{v.pic[0].picAddr}}" alt="">
+                <p class="mui-ellipsis-2">{{v.proName}}</p>
+                <p>
+                    <span>&yen;{{v.price}}</span>
+                    <span>&yen;{{v.oldPrice}}</span>
+                </p>
+                <button class="mui-btn-blue">立即购买</button>
+            </a>
         </li>
         {{/each}}
     </ul>
     {{/if}}
 </script>
+
+
 <script src="lib/mui/js/mui.js"></script>
 <script src="lib/zepto/zepto.min.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
-<script src="js/search.js"></script>
+<script src="js/searchList.js"></script>
 </body>
 </html>
