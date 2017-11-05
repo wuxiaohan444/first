@@ -19,31 +19,39 @@ function render(data) {
         url: "/product/queryProduct",
         data: data,
         success: function (data) {
-            $(".lt_product").html(template("tpl", data));
-            console.log(data);
+            setTimeout(function () {
+                $(".lt_product").html(template("tpl", data));
+                console.log(data);
+            },1000)
         }
     })
 }
 var key = tools.getParam("key");
-$(".search_text").val(key);
+$(".search_text").attr("placeholder",key);
+// $(".search_text").val(key);
 data.proName = key;
 render(data);
+
+
 
 $(".search_btn").on("click", function () {
     $(".lt_sort a").removeClass("now");
     $(".lt_sort span").removeClass("fa-angle-up").addClass("fa-angle-down");
     data.price = "";
     data.num = "";
-
     var key = $(".search_text").val().trim();
     if (key == "") {
         mui.toast("请输入搜索的商品");
     }
     data.proName = key;
+    $(".lt_product").html('<div class="loading"></div>');
     render(data);
+    $(".search_text").val("");
+    $(".search_text").attr("placeholder",key);
 });
 
 $(".lt_sort>a[data-type]").on("click", function () {
+    $(".lt_product").html('<div class="loading"></div>');
     var $this = $(this);
     var $span = $(this).find("span");
     if ($this.hasClass("now")) {
@@ -57,4 +65,6 @@ $(".lt_sort>a[data-type]").on("click", function () {
     var value = $span.hasClass("fa-angle-up") ? 1 : 2;
     data[type] = value;
     render(data);
+    data.price = "";
+    data.num = "";
 })

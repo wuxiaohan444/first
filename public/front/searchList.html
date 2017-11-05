@@ -31,6 +31,8 @@
                     <a href="javascript:;">折扣<span class="fa fa-angle-down"></span></a>
                 </div>
                 <div class="lt_product">
+                    <div class="loading"></div>
+
                 </div>
             </div>
         </div>
@@ -51,13 +53,13 @@
 <script type="text/html" id="tpl">
 
     {{if(data.length===0)}}
-    <p>暂无此商品</p>
+    <p>暂无此商品,请输入我们有的产品！</p>
     {{/if}}
     {{if(data.length>0)}}
     <ul class="mui-clearfix">
         {{each data v i}}
         <li>
-            <a href="#">
+            <a href="product.html?productId={{v.id}}">
                 <img src="{{v.pic[0].picAddr}}" alt="">
                 <p class="mui-ellipsis-2">{{v.proName}}</p>
                 <p>
@@ -71,8 +73,6 @@
     </ul>
     {{/if}}
 </script>
-
-
 <script src="lib/mui/js/mui.js"></script>
 <script src="lib/zepto/zepto.min.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>

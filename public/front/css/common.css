@@ -1,7 +1,7 @@
 html,body{
     height: 100%;
 }
-ul{
+*{
     margin: 0;
     padding:0;
     list-style: none;
@@ -11,7 +11,6 @@ ul{
     height: 100%;
     max-width: 640px;
     min-width: 320px;
-    background-color: pink;
     margin: 0 auto;
     padding-top: 45px;
     padding-bottom: 50px;
@@ -33,6 +32,7 @@ ul{
     max-width: 640px;
     min-width: 320px;
     background-color: #fff;
+    padding: 10px;
 }
 .lt_header .icon_left,
 .lt_header .icon_right{
@@ -90,11 +90,11 @@ ul{
 }
 .lt_product li{
     float: left;
-    width: 42%;
-    margin-left: 20px;
+    width: 46%;
+    margin-left: 10px;
     border: 1px solid #ccc;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
 }
 .lt_product li img{
